@@ -1,0 +1,10 @@
+flagbit:
+  entity:
+    product:
+      btn:
+        clone: Клонировать
+      info:
+        create_successful: Товар клонирован успешно
+  confirmation:
+    clone:
+      product: Клонировать товар

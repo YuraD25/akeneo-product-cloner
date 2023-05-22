@@ -19,10 +19,21 @@ is not compatible with Akeneo 5 Enterprise Edition! For the Akeneo 5 Community E
 
 You can install the package with the following command.
 
-``` bash
-composer require flagbit/product-cloner-bundle
+add to composer.json of Akeneo project
+to autoload.psr-4
+
+``` yaml
+"psr-4": {
+            "Flagbit\\Bundle\\ProductClonerBundle\\": "vendor/flagbit/product-cloner-bundle/src",
+            "Pim\\Upgrade\\": "upgrades/"
+        }
 ```
 
+and then run composer update
+
+``` bash
+composer update
+```
 ### Enable the bundle ####
 
 Add the bundle to the `config/bundles.php` file:
@@ -85,6 +96,8 @@ This extension supports the latest Akeneo PIM CE/EE stable versions:
 * 3.2 (LTS)
 * 4.0
 * 5.0
+* 6.0
+* 7.0
 
 ## License ##
 

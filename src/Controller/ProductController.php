@@ -153,6 +153,7 @@ class ProductController extends AbstractController
                 );
             }
             unset($data['code_to_clone']);
+
             if (isset($data['parent'])) {
                 // TODO: remove this as soon as support of 2.1 is dropped
                 $cloneProduct = $this->variantProductBuilder->createProduct();
@@ -173,8 +174,10 @@ class ProductController extends AbstractController
             $normalizedProduct = $this->normalizeProduct($product);
 
             $normalizedProduct = $this->removeIdentifierAttributeValue($normalizedProduct);
+
             $this->productUpdater->update($cloneProduct, $normalizedProduct);
             if (!empty($data['values'])) {
+
                 $this->updateProduct($cloneProduct, $data);
             }
             // validate product model clone and return violations if found
@@ -195,7 +198,10 @@ class ProductController extends AbstractController
             $this->productSaver->save($cloneProduct);
             return new JsonResponse('Success.');
         } catch (\Exception $e) {
-            return new JsonResponse(['values' => [['message' => 'Failed.']]], $e->getMessage());
+            return new JsonResponse(
+                ['message' => $e->getMessage()],
+                Response::HTTP_BAD_REQUEST
+            );
         }
     }
 

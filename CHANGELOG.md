@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.0.0
+
+* Add support for Akeneo 7.0 (LTS)
+
 ## 3.0.0
 
 * Add support for Akeneo 3.0 (LTS)
